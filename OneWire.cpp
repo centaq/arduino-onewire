@@ -154,6 +154,13 @@ void OneWire::begin(uint8_t pin)
 #endif
 }
 
+void OneWire::switch_pin(uint8_t pin) 
+{
+	//pinMode(pin, INPUT);
+	bitmask = PIN_TO_BITMASK(pin);
+	baseReg = PIN_TO_BASEREG(pin);
+}
+
 
 // Perform the onewire reset function.  We will wait up to 250uS for
 // the bus to come high, if it doesn't then it is broken or shorted
